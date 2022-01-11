@@ -29,9 +29,14 @@ main , #evaluation-form {
 
 .line-form {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .column-form {
   display: flex;
   flex-direction: column;
+}
+
+#label-content {
+  display: block;
 }
