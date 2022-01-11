@@ -30,3 +30,8 @@ main , #evaluation-form {
 .line-form {
   display: flex;
 }
+
+.column-form {
+  display: flex;
+  flex-direction: column;
+}
