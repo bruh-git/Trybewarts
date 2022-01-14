@@ -1,6 +1,10 @@
 const inputEmail = document.getElementById('login-email');
 const inputPassword = document.getElementById('login-password');
 const inputButton = document.getElementById('login-button');
+const submitButton = document.getElementById('submit-btn');
+const agreementCheckbox = document.getElementById('agreement');
+const textarea = document.getElementById('textarea');
+const counter = document.getElementById('counter');
 
 inputButton.addEventListener('click', (event) => {
   event.preventDefault();
@@ -11,9 +15,6 @@ inputButton.addEventListener('click', (event) => {
   }
 });
 
-const submitButton = document.getElementById('submit-btn');
-const agreementCheckbox = document.getElementById('agreement');
-
 function disableButton() {
   if (agreementCheckbox.checked) {
     submitButton.disabled = false;
@@ -21,8 +22,16 @@ function disableButton() {
     submitButton.disabled = true;
   }
 }
+
 agreementCheckbox.addEventListener('click', disableButton);
+
+function countCharacters() {
+  counter.innerHTML = 500 - textarea.value.length;
+}
+
+textarea.addEventListener('keyup', countCharacters);
 
 window.onload = () => {
   disableButton();
+  countCharacters();
 };
