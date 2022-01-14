@@ -1,8 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Montserrat, sans-serif;
-  font-weight: 900;
+  font-family: 'Harry Potter', sans-serif;
+  font-weight: 300;
 }
 
 .header {
@@ -21,6 +21,12 @@
 
 .trybewarts-login {
   display: flex;
+}
+
+.input-form {
+  border-radius: 7px;
+  margin: 5px;
+  padding: 10px;
 }
 
 .trybewarts-login * {
@@ -69,6 +75,7 @@ main , #evaluation-form {
 button {
   background-color: indigo;
   color: white;
+  cursor: pointer;
 }
 
 #submit-btn {
@@ -77,12 +84,16 @@ button {
   margin-top: 10px;
   padding: 5px;
 }
+#submit-btn[ disabled] {
+  background-color: rgb(160, 160, 160);
+  cursor: not-allowed;
+}
 
 footer {
   display: flex;
   justify-content: center;
   background-color: rgb(60, 64, 74);
-  color: white;
   bottom: 0;
+  color: white;
   padding: 15px;
 }
