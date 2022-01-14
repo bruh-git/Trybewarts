@@ -12,7 +12,8 @@ const inputFormLastName = document.getElementById('input-lastname');
 const inputFormEmail = document.getElementById('input-email');
 const selectFormHouse = document.getElementById('house');
 const inputFormTextArea = document.getElementById('textarea');
-const inputFormTechnogies = document.querySelectorAll("input[type='checkbox'][name='technologies']");
+const inputFormTechnogies = document.querySelectorAll('input[type="checkbox"][name="technologies"]');
+const inputsFormRate = document.querySelectorAll('input[type="radio"][name="rate"]');
 const printDiv = document.getElementById('user-information');
 
 inputButton.addEventListener('click', (event) => {
@@ -40,26 +41,51 @@ function countCharacters() {
 
 textarea.addEventListener('keyup', countCharacters);
 
+function whatTechnologies() {
+  let stringTechnologies = '';
+  inputFormTechnogies.forEach((materia) => {
+    if (materia.checked) {
+      stringTechnologies += ` ${materia.parentElement.innerText}`;
+    }
+  });
+  return stringTechnologies;
+}
+
+function whatRate() {
+  for (const rate of inputsFormRate) {
+    if (rate.checked) {
+      return rate.parentElement.innerText;
+    }
+  }
+}
+
 function printUserData(event) {
   event.preventDefault();
-  const spanName = document.createElement('span');
-  spanName.innerHTML = `Nome: ${inputFormName.value} ${inputFormLastName.value}`;
-  const spanEmail = document.createElement('span');
-  spanEmail.innerHTML = `Email: ${inputFormEmail.value}`;
-  const spanHouse = document.createElement('span');
-  spanHouse.innerHTML = `Casa: ${selectFormHouse.value}`;
-  const spanComment = document.createElement('span');
-  spanComment.innerHTML = `Observações: ${inputFormTextArea.value}`;
-  const spanTechnologies = document.createElement('span');
-  spanTechnologies.innerHTML = `Matérias:${inputFormTechnogies.forEach((materia) => ` ${materia}`)}`;
-  printDiv.appendChild(spanName);
-  printDiv.appendChild(spanEmail);
-  printDiv.appendChild(spanHouse);
-  printDiv.appendChild(spanComment);
-  printDiv.appendChild(spanTechnologies);
+  const pName = document.createElement('p');
+  pName.innerHTML = `Nome: ${inputFormName.value} ${inputFormLastName.value}`;
+  const pEmail = document.createElement('p');
+  pEmail.innerHTML = `Email: ${inputFormEmail.value}`;
+  const pHouse = document.createElement('p');
+  const pFamily = document.createElement('p');
+  pFamily.innerHTML = `Família: `;
+  pHouse.innerHTML = `Casa: ${selectFormHouse.value}`;
+  const pTechnologies = document.createElement('p');
+  pTechnologies.innerHTML = `Matérias:${whatTechnologies()}`;
+  const pRate = document.createElement('p');
+  pRate.innerHTML = `Avaliação: ${whatRate()}`;
+  const pComment = document.createElement('p');
+  pComment.innerHTML = `Observações: ${inputFormTextArea.value}`;
+  printDiv.appendChild(pName);
+  printDiv.appendChild(pEmail);
+  printDiv.appendChild(pHouse);
+  printDiv.appendChild(pTechnologies);
+  printDiv.appendChild(pRate);
+  printDiv.appendChild(pComment);
 }
-  submitButton.addEventListener('click', printUserData);
-  window.onload = () => {
+
+submitButton.addEventListener('click', printUserData);
+
+window.onload = () => {
   disableButton();
   countCharacters();
 };
