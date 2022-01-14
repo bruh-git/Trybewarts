@@ -84,7 +84,8 @@ button {
   margin-top: 10px;
   padding: 5px;
 }
-#submit-btn[ disabled] {
+
+#submit-btn [ disabled ] {
   background-color: rgb(160, 160, 160);
   cursor: not-allowed;
 }
