@@ -59,7 +59,7 @@ function printUserData(event) {
   printDiv.appendChild(spanTechnologies);
 }
   submitButton.addEventListener('click', printUserData);
-window.onload = () => {
+  window.onload = () => {
   disableButton();
   countCharacters();
 };
