@@ -10,3 +10,19 @@ inputButton.addEventListener('click', (event) => {
     alert('Email ou senha inválidos.');
   }
 });
+
+const submitButton = document.getElementById('submit-btn');
+const agreementCheckbox = document.getElementById('agreement');
+
+function disableButton() {
+  if (agreementCheckbox.checked) {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+}
+agreementCheckbox.addEventListener('click', disableButton);
+
+window.onload = () => {
+  disableButton();
+};
