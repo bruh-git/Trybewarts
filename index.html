@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trybewarts</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="header">
@@ -20,7 +23,8 @@
   <main>
     <form id="evaluation-form" action="POST">
       <div class="container-form">
-        <div class="line-form">
+        <h1>Formulário de Avaliação</h1>
+        <div class="line-form"> 
           <input class="input-form" type="text" name="name" id="input-name" placeholder="Nome">
           <input class="input-form" type="text" name="last-name" id="input-lastname" placeholder="Sobrenome">
         </div>
@@ -75,9 +79,9 @@
       </div>
       <div id="user-information"></div>
     </form>
-    <img id="trybewarts-forms-logo" src="images/trybewarts-colored.svg" alt="Trybewarts logo">
+    <div id="logo-container"><img id="trybewarts-forms-logo" src="images/trybewarts-colored.svg" alt="Trybewarts logo"></div>
   </main>
-  <footer>Direitos reservados à Trybewarts©</footer>
+    <footer>Direitos reservados à Trybewarts©</footer>
  <script src="script.js"></script> 
 </body>
 </html>
