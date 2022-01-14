@@ -5,16 +5,6 @@ const submitButton = document.getElementById('submit-btn');
 const agreementCheckbox = document.getElementById('agreement');
 const textarea = document.getElementById('textarea');
 const counter = document.getElementById('counter');
-const inputsForm = document.getElementsByClassName('input-form');
-
-const inputFormName = document.getElementById('input-name');
-const inputFormLastName = document.getElementById('input-lastname');
-const inputFormEmail = document.getElementById('input-email');
-const selectFormHouse = document.getElementById('house');
-const inputFormTextArea = document.getElementById('textarea');
-const inputFormTechnogies = document.querySelectorAll('input[type="checkbox"][name="technologies"]');
-const inputsFormRate = document.querySelectorAll('input[type="radio"][name="rate"]');
-const printDiv = document.getElementById('user-information');
 
 inputButton.addEventListener('click', (event) => {
   event.preventDefault();
@@ -41,46 +31,89 @@ function countCharacters() {
 
 textarea.addEventListener('keyup', countCharacters);
 
-function whatTechnologies() {
-  let stringTechnologies = '';
-  inputFormTechnogies.forEach((materia) => {
-    if (materia.checked) {
-      stringTechnologies += ` ${materia.parentElement.innerText}`;
-    }
-  });
-  return stringTechnologies;
+function fullName() {
+  const formName = document.getElementById('input-name');
+  const formLastName = document.getElementById('input-lastname');
+  const paragraph = document.createElement('p');
+  paragraph.innerHTML = `Nome: ${formName.value} ${formLastName.value}`;
+  return paragraph;
 }
 
-function whatRate() {
-  for (const rate of inputsFormRate) {
-    if (rate.checked) {
-      return rate.parentElement.innerText;
+function emailAddress() {
+  const formEmail = document.getElementById('input-email');
+  const paragraph = document.createElement('p');
+  paragraph.innerHTML = `Email: ${formEmail.value}`;
+  return paragraph;
+}
+
+function whichHouse() {
+  const formHouse = document.getElementById('house');
+  const paragraph = document.createElement('p');
+  paragraph.innerHTML = `Casa: ${formHouse.value}`;
+  return paragraph;
+}
+
+function whichFamily() {
+  const formFamilies = document.querySelectorAll('input[type="radio"][name="family"]');
+  const paragraph = document.createElement('p');
+  let string = '';
+  formFamilies.forEach((family) => {
+    if (family.checked) {
+      string = family.parentElement.innerText;
     }
-  }
+  });
+  paragraph.innerHTML = `Família: ${string}`;
+  return paragraph;
+}
+
+function whichTechnologies() {
+  const formTechnologies = document.querySelectorAll('input[type="checkbox"][name="technologies"]');
+  const paragraph = document.createElement('p');
+  let string = '';
+  formTechnologies.forEach((materia) => {
+    if (materia.checked) {
+      string += ` ${materia.parentElement.innerText},`;
+    }
+  });
+  string = string.substring(0, string.length - 1);
+  paragraph.innerHTML = `Matérias:${string}`;
+  return paragraph;
+}
+
+function whichRate() {
+  const formRates = document.querySelectorAll('input[type="radio"][name="rate"]');
+  const paragraph = document.createElement('p');
+  let string = '';
+  formRates.forEach((rate) => {
+    if (rate.checked) {
+      string = rate.parentElement.innerText;
+    }
+  });
+  paragraph.innerHTML = `Avaliação: ${string}`;
+  return paragraph;
+}
+
+function userComment() {
+  const formTextArea = document.getElementById('textarea');
+  const paragraph = document.createElement('p');
+  paragraph.innerHTML = `Observações: ${formTextArea.value}`;
+  return paragraph;
 }
 
 function printUserData(event) {
   event.preventDefault();
-  const pName = document.createElement('p');
-  pName.innerHTML = `Nome: ${inputFormName.value} ${inputFormLastName.value}`;
-  const pEmail = document.createElement('p');
-  pEmail.innerHTML = `Email: ${inputFormEmail.value}`;
-  const pHouse = document.createElement('p');
-  const pFamily = document.createElement('p');
-  pFamily.innerHTML = `Família: `;
-  pHouse.innerHTML = `Casa: ${selectFormHouse.value}`;
-  const pTechnologies = document.createElement('p');
-  pTechnologies.innerHTML = `Matérias:${whatTechnologies()}`;
-  const pRate = document.createElement('p');
-  pRate.innerHTML = `Avaliação: ${whatRate()}`;
-  const pComment = document.createElement('p');
-  pComment.innerHTML = `Observações: ${inputFormTextArea.value}`;
-  printDiv.appendChild(pName);
-  printDiv.appendChild(pEmail);
-  printDiv.appendChild(pHouse);
-  printDiv.appendChild(pTechnologies);
-  printDiv.appendChild(pRate);
-  printDiv.appendChild(pComment);
+  const printDiv = document.getElementById('user-information');
+  printDiv.innerHTML = '';
+  const formInputs = document.getElementById('container-form');
+  formInputs.style.display = 'none';
+  printDiv.style.display = 'block';
+  printDiv.appendChild(fullName());
+  printDiv.appendChild(emailAddress());
+  printDiv.appendChild(whichHouse());
+  printDiv.appendChild(whichFamily());
+  printDiv.appendChild(whichTechnologies());
+  printDiv.appendChild(whichRate());
+  printDiv.appendChild(userComment());
 }
 
 submitButton.addEventListener('click', printUserData);
