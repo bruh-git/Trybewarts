@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap');
 
 * {
@@ -12,6 +14,12 @@
 
 body {
   background-color: rgb(50, 53, 61);
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 60px;
 }
 
 .header {
@@ -37,13 +45,6 @@ body {
   display: flex;
 }
 
-.trybewarts-login * {
-  border-radius: 7px;
-  margin-left: 15px;
-  padding: 10px;
-  width: 50%;
-}
-
 input {
   border: 1px solid rgb(50, 167, 145);
   border-radius: 7px;
@@ -54,12 +55,6 @@ select {
   background-color: rgb(136, 233, 215);
   border-radius: 7px;
   padding: 10px 5px;
-}
-
-#page-container {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 60px;
 }
 
 main {
@@ -82,14 +77,6 @@ main {
 #evaluation-form h1 {
   font-size: 40px;
   margin-bottom: 20px;
-}
-
-#input-name , #input-email {
-  margin-right: 10px;
-}
-
-#input-name , #input-lastname {
-  margin-bottom: 10px;
 }
 
 #trybewarts-forms-logo {
@@ -124,7 +111,7 @@ hr {
   width: 50px;
 }
 
-input[type="checkbox"] {
+.subject , #agreement {
   margin-right: 10px;
 }
 
@@ -138,16 +125,16 @@ input[type="checkbox"] {
   padding: 0 0 10px;
 }
 
+input , textarea , select {
+  font-size: 1rem;
+}
+
 .family-form {
   width: 50%;
 }
 
 .family-form input {
   margin-right: 10px;
-}
-
-input , textarea , select {
-  font-size: 1rem;
 }
 
 button {
@@ -172,7 +159,7 @@ button {
   font-size: 1.2rem;
 }
 
-#label-family , #label-content , #label-rate{
+#label-family , #label-content , #label-rate {
   margin-bottom: 10px;
 }
 
@@ -208,24 +195,18 @@ button {
 }
 
 #letter {
-  width: 100%;
-  position: relative;
+  display: none;
 }
 
 #user-information {
-  max-width: 500px;
+  width: 100%;
   height: fit-content;
-  position: absolute;
-  top: 150px;
-  padding: 50px;
-  color: rgb(50, 53, 61);
-  transform: skewY(-2deg);
+  padding: 10px;
   word-wrap: break-word;
 }
 
-#user-information p , #user-information strong {
-  font-family: Moon Dance, cursive;
-  font-size: 25px;
+#user-information p {
+  line-height: 40px;
 }
 
 footer {
@@ -237,4 +218,116 @@ footer {
   background-color: rgb(60, 64, 74);
   color: white;
   padding: 20px;
+}
+
+@media screen and ( max-width : 636px ) {
+
+  #trybewarts-header-title {
+    flex-grow: 1;
+  }
+
+  .trybewarts-header-logo {
+    flex-grow: 1;
+  }
+
+  .trybewarts-login {
+    display: none;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #evaluation-form {
+    width: 100%;
+  }
+
+  #evaluation-form h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  #input-name , #input-lastname , #input-email {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #trybewarts-forms-logo {
+    width: 95%;
+  }
+
+  .line-form {
+    flex-wrap: wrap;
+  }
+
+  .feedback-form label {
+    flex-grow: 1;
+  }
+
+  #label-rate {
+    width: 100%;
+  }
+
+  #label-content {
+    margin-top: 20px;
+  }
+
+  #label-family , #label-content , #label-rate {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and ( min-width : 637px ) {
+
+  .trybewarts-login * {
+    border-radius: 7px;
+    margin-left: 15px;
+    padding: 10px;
+    width: 50%;
+  }
+
+  #input-name , #input-email {
+    margin-right: 10px;
+  }
+
+  #input-name , #input-lastname {
+    margin-bottom: 10px;
+  }
+
+  #user-information {
+    max-width: 500px;
+    position: absolute;
+    top: 150px;
+    padding: 50px;
+    color: rgb(50, 53, 61);
+    transform: skewY(-2deg);
+  }
+
+  #user-information p , #user-information strong {
+    font-family: Moon Dance, cursive;
+    font-size: 25px;
+  }
+
+  #letter {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+}
+
+@media screen and ( min-width : 637px ) and ( max-width : 1119px ) {
+
+  #trybewarts-header-title {
+    margin-right: 10px;
+  }
+
+  .trybewarts-header-logo {
+    margin-right: 10px;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
 }

@@ -70,9 +70,9 @@ function whichTechnologies() {
   const formTechnologies = document.querySelectorAll('input[type="checkbox"][name="technologies"]');
   const paragraph = document.createElement('p');
   let string = '';
-  formTechnologies.forEach((technology) => {
-    if (technology.checked) {
-      string += ` ${technology.parentElement.innerText},`;
+  formTechnologies.forEach((subject) => {
+    if (subject.checked) {
+      string += ` ${subject.parentElement.innerText},`;
     }
   });
   string = string.substring(0, string.length - 1);
