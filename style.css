@@ -7,6 +7,7 @@
 
 .header {
   display: flex;
+  width: 100%;
   background-color: rgb(50, 167, 145);
   justify-content: space-between;
   align-items: center;
@@ -52,13 +53,6 @@ main , #evaluation-form {
   height: 500px;
 }
 
-#logo-container {
-  display: flex;
-  justify-content: right;
-  width: 55%;
-  padding: 50px;
-}
-
 .line-form {
   display: flex;
 }
@@ -92,6 +86,7 @@ button {
 
 footer {
   display: flex;
+  width: 100%;
   justify-content: center;
   background-color: rgb(60, 64, 74);
   bottom: 0;
